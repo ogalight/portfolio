@@ -1,0 +1,302 @@
+body,
+html {
+  height: 100%;
+}
+
+
+.details {
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+	width: 640px;
+	text-align: center;
+}
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+#profile {
+	padding: 100px, 0px, 200px, 200px;
+	h2{
+	font-weight: bold;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-size: 50px;
+	text-align: left;
+	padding-left: 200px;
+	letter-spacing: 0.5em;
+	rt{
+		font-size: 40%;
+	}
+}
+  h3{
+	padding-left: 150px;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-size: 20px;
+	text-align: left;
+	line-height: 40px;
+}
+.flex{
+	position: relative;
+	display: flex;
+	flex-wrap: nowrap;
+	h4{
+		padding-left: 200px;
+		font-family: 'Noto Sans JP', sans-serif;
+		font-size: 20px;
+		text-align: left;
+		display: inline-block;
+
+	}
+	.flex-back-1{
+		background-color: rgba($color: white, $alpha: 0.5);
+		background-size: 300px 300px;
+		padding: 15px 20px 20px 20px;
+		border-radius: 10px;
+		span{
+			background-color: rgba(143, 143, 143, 0.5);
+			color: rgb(250, 253, 253);
+			padding: 5px 15px;
+			border-radius: 10px;
+		}
+	}
+	.flex-back-2{
+		background-color: rgba($color: white, $alpha: 0.5);
+		padding: 15px 20px 20px 20px;
+		border-radius: 10px;
+		span{
+			background-color: rgba(143, 143, 143, 0.5);
+			color: rgb(250, 253, 253);
+			padding: 5px 15px;
+			border-radius: 10px;
+		}
+	}
+	.right-flex{
+		float: left;
+	}
+}
+}
+
+/*以下archive ポートフォリオタイトルアニメーション*/
+$t: 1s;
+$d: 0.08em;
+$n: 3;
+$e: cubic-bezier(0.860, 0.000, 0.070, 1.000); 
+$front: rgb(73, 53, 51);
+$back: rgb(236, 201, 201);
+
+#archive {
+background-color: rgb(250, 248, 242);
+padding-top: 100px;
+padding-bottom: 200px;
+padding-left: 200px;
+padding-right: 200px;
+text-align: center;
+.popout{
+  font-family: Tahoma;
+  font-weight: 900;
+  font-size: 65px;
+  padding: 80px 50px;
+  @keyframes ani{
+    0%{
+      transform: translate3d(0,0,0);
+      text-shadow: 0em 0em 0 $back;
+      color: $front;
+    }
+    30%{
+      transform: translate3d(0,0,0);
+      text-shadow: 0em 0em 0 $back;
+      color: $front;
+    }
+    70%{
+      transform: translate3d($d,-$d,0);
+      text-shadow: -$d $d $back;
+      color: $front;
+    }
+    100%{
+      transform: translate3d($d,-$d,0);
+      text-shadow: -$d $d $back;
+      color: $front;
+    }
+  }
+  span{
+    position: relative;
+    display: inline-block;
+    animation: ani $t infinite alternate $e;
+    @for $i from 1 through $n{
+      &:nth-last-child(#{$i}n){ animation-delay: -$t*$i/$n/2;}
+    }
+  }
+}
+}
+
+/*ポートフォリオの格子状の部分*/
+.grid {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 250px 100px 100px;
+	.A1{
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+	text-align: center;
+	border-radius: 8px;
+	background-color: cornsilk;
+	background-size: 100%;
+	padding: 8px 16px;
+	text-decoration: none;
+	&:hover {
+		opacity: 0.3;
+		background-image: url(vol-1.jpg);
+		.mask {
+			opacity:		1;	/* マスクを表示する */
+			font-size: 10px;
+			color: black;
+		}
+	  }
+	.a{
+		color: rgb(80, 79, 79);
+		text-decoration: black;
+		}
+	.caption {
+			opacity:		1;	/* マスクを表示する */
+			padding-left:		90px;	/* 右にずらす */
+		}
+		.mask{
+				width:			100%;
+				height:			100%;
+				position:		absolute;
+				top:			0;
+				left:			0;
+				opacity:		0;	/* マスクを表示しない */
+				background-color: white;
+				-webkit-transition:	all 0.6s ease;
+				transition:		all 0.6s ease;
+				font-size: 10px;
+				color: black;
+			}
+		}
+		
+	.A2{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 250px;
+		text-align: center;
+		border-radius: 8px;
+		background-color: cornsilk;
+		background-size: 100%;
+		padding: 8px 16px;
+		text-decoration: none;
+		&:hover {
+			opacity: 0.3;
+			background-image: url(vol-2.png);
+			}
+			@extend .a;
+			@extend .caption;
+			@extend .mask
+		}
+		.A3{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 250px;
+			text-align: center;
+			border-radius: 8px;
+			background-color: cornsilk;
+			background-size: 100%;
+			padding: 8px 16px;
+			text-decoration: none;
+			&:hover {
+				opacity: 0.3;
+				background-image: url(vol-3.png);
+				}
+				@extend .a;
+				@extend .caption;
+				@extend .mask
+			}
+		}
+
+#phrase{
+	@extend .three
+}
+
+
+#access{
+	font-family: Tahoma;
+	padding: 100px 0px 0px 0px;
+	text-align: center;
+	h3{
+		font-size: 50px;
+	}
+	h5{
+		font-size: 18px;
+	}
+	p{
+		font-size: 18px;
+		font-weight: bold;
+		padding-bottom: 90px;
+	}
+}
+
+
+
+.scroll {
+	position: relative;
+    min-height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 2;
+}
+	
+.one {
+	width: 100%;
+	background-image: url('connect.png');
+}
+.two{
+	background-image: url('portrait-2.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	padding-bottom: 170px;
+}
+.three{
+	padding: 200px 200px 200px 200px;
+	background-position: center;
+
+
+	@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+	h3{
+		min-height: 20%;
+		font-family: 'M PLUS Rounded 1c', sans-serif;
+		color: slategrey;
+		font-size: 20px;
+		letter-spacing:1em;
+		text-align: center;
+	}
+	h4{
+		font-family: 'M PLUS Rounded 1c', sans-serif;
+		color: rgb(70, 80, 90);
+		font-size: 30px;
+		letter-spacing:1em;
+		text-align: center;
+	}
+}
+.four{
+	background-image: url('flower.jpg') ;
+	.rgba{
+		background-color: rgba($color: white, $alpha: 0.7);
+	}
+}
+
+.footer{
+	font-size: 15px;
+	font-family: "cursive";
+	color: rgb(44, 38, 20);
+	text-align: center;
+}
